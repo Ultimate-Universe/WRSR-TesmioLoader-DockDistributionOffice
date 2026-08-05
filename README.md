@@ -30,7 +30,6 @@ DockDistributionOffice.ini
 
 - Workers & Resources: Soviet Republic
 - TesmioLoader
-- The Dock Distribution Office Workshop item
 - The game must be launched through `tesmiolauncher.exe`
 
 The buildings themselves are normal Workshop assets, but their Distribution Office behaviour is supplied by the TesmioLoader plugin. Launching the game normally through Steam leaves the scripted controller unavailable.
@@ -57,14 +56,13 @@ The buildings themselves are normal Workshop assets, but their Distribution Offi
    Steam\steamapps\common\SovietRepublic\tesmioloader\build\plugins
    ```
 
-5. Delete obsolete pre-release files named `ship_distribution.dll` and `ship_distribution.ini`. Loading both plugin names at once can install duplicate hooks and crash the game.
-6. Run:
+5. Run:
 
    ```text
    Steam\steamapps\common\SovietRepublic\tesmioloader\build\tesmiolauncher.exe
    ```
 
-7. Enable `DockDistributionOffice.dll` and launch the game through TesmioLoader.
+6. Enable `DockDistributionOffice.dll` and launch the game through TesmioLoader.
 
 ## Basic operation
 
@@ -276,28 +274,11 @@ lld-link /dll /noentry /nodefaultlib /machine:x64 /opt:ref /opt:icf \
   /export:TsmPluginApiVersion /export:TsmPluginInit /export:TsmPluginStart
 ```
 
-## Repository layout
-
-```text
-source/                         Plugin source, INI, build script and import library
-release/plugins/                Ready-to-copy DLL and INI
-workshop/3776862813/            Steam Workshop WIP payload
-STEAM-WORKSHOP-DESCRIPTION.txt  Workshop page text
-TECHNICAL-NOTES-v1.0.0.md       Implementation notes
-VALIDATION.txt                  Decompiled-target and package validation record
-CHANGELOG.txt                   Release history
-LICENSE                         GNU GPL v3
-```
-
 ## Compatibility and safety
 
 This is an unofficial script mod that modifies live game behaviour through TesmioLoader. Back up important saves before installing script-mod updates. A Workers & Resources or TesmioLoader update may require a new plugin build.
 
 Do not make one scripted building the sole supply route for critical services. Maintain alternative logistics for essential industries where practical.
-
-### Prototype asset-name warning
-
-Version 1.0.0 uses the final asset IDs `DockDistributionOfficeSmall` and `DockDistributionOfficeMedium`. Experimental v0.x packages used temporary `TSDO_V1...` folder IDs. Saves containing those prototype assets are not guaranteed to resolve them after switching to the final package. This naming change was intentionally made before the first public release.
 
 ## Troubleshooting
 
@@ -326,16 +307,11 @@ Check `tesmioloader.log` for:
 DockDistributionOffice  init v1.0.0 release
 ```
 
-Also confirm obsolete `ship_distribution.dll` files were removed.
-
 ### Reporting a bug
 
 Open a GitHub issue and include:
 
 - the exact steps required to reproduce the problem;
-- Dock Distribution Office version;
-- TesmioLoader version;
-- whether the save began on an earlier experimental build;
 - the complete `tesmioloader.log`;
 - screenshots where useful.
 
